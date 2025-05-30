@@ -68,6 +68,7 @@ import java.lang.IllegalStateException
 import java.util.*
 import kotlin.math.max
 import kotlin.math.min
+import androidx.media3.common.TrackSelectionOverrides
 
 internal class BetterPlayer(
     context: Context,
@@ -544,7 +545,7 @@ internal class BetterPlayer(
     }
 
     fun setTrackParameters(width: Int, height: Int, bitrate: Int) {
-        val parametersBuilder = trackSelector.parameters.buildUpon()
+        val parametersBuilder = (trackSelector as DefaultTrackSelector).parameters.buildUpon()
         if (width != 0 && height != 0) {
             parametersBuilder.setMaxVideoSize(width, height)
         }
@@ -555,7 +556,7 @@ internal class BetterPlayer(
             parametersBuilder.clearVideoSizeConstraints()
             parametersBuilder.setMaxVideoBitrate(Int.MAX_VALUE)
         }
-        trackSelector.setParameters(parametersBuilder)
+        trackSelector.setParameters(parametersBuilder.build())
     }
 
     fun seekTo(location: Int) {

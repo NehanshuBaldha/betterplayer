@@ -53,12 +53,14 @@ android {
     }
 
     dependencies {
-        implementation "com.google.android.exoplayer:exoplayer-core:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-hls:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-dash:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:exoplayer-ui:$exoPlayerVersion"
-        implementation "com.google.android.exoplayer:extension-mediasession:$exoPlayerVersion"
+        def media3_version = "1.4.1"
+        implementation "androidx.media3:media3-exoplayer:$media3_version"
+        implementation "androidx.media3:media3-exoplayer-dash:$media3_version"
+        implementation "androidx.media3:media3-exoplayer-hls:$media3_version"
+        implementation "androidx.media3:media3-exoplayer-smoothstreaming:$media3_version"
+        implementation "androidx.media3:media3-ui:$media3_version"
+        implementation "androidx.media3:media3-session:$media3_version" // replaces extension-mediasession
+
         implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
         implementation "androidx.lifecycle:lifecycle-common:$lifecycleVersion"
         implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
