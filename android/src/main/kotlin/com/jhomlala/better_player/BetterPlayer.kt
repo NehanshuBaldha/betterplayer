@@ -544,7 +544,7 @@ internal class BetterPlayer(
     }
 
     fun setTrackParameters(width: Int, height: Int, bitrate: Int) {
-        val parametersBuilder = trackSelector.buildUponParameters()
+        val parametersBuilder = trackSelector.parameters.buildUpon()
         if (width != 0 && height != 0) {
             parametersBuilder.setMaxVideoSize(width, height)
         }
